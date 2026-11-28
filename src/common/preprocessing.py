@@ -107,7 +107,10 @@ def scale_features(df: pd.DataFrame, columns: list, method: str = "standard",
         else:
             raise ValueError(f"unsupported scaling method: {method!r} (use 'standard' or 'minmax')")
         a, b = params
-        span = b if b != 0 else 1.0  # std or (max-min); guard constant columns
+        if method == "standard":
+            span = b if b != 0 else 1.0        # b = std
+        else:  # minmax
+            span = (b - a) if (b - a) != 0 else 1.0  # b = max, a = min
         df[col] = (df[col] - a) / span
         fitted[col] = params
     if stats is None:

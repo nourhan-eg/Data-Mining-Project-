@@ -12,5 +12,9 @@ CLEAN_STUDENT = PROJECT_ROOT / "data" / "processed" / "student_clean.csv"
 CLEAN_RETAIL_BASKET = PROJECT_ROOT / "data" / "processed" / "retail_basket.csv"
 
 STUDENT_TARGET = "Performance Index"
+NSL_KDD_TARGET = "label"
+
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
+
+FIGURES_DIR = PROJECT_ROOT / "src" / "reports" / "figures"
